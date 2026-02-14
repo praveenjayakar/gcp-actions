@@ -1,0 +1,28 @@
+name: GCP Project Details (OIDC)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  gcp-info:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write   # REQUIRED
+      contents: read
+
+    steps:
+      - name: Authenticate to GCP
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/338612156229/locations/global/workloadIdentityPools/github-pool/providers/github-provider
+          service_account: github-sa@edge-485915.iam.gserviceaccount.com
+
+      - name: Setup gcloud
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Set project
+        run: gcloud config set project edge-485915
+
+      - name: Get project details
+        run: gcloud projects describe edge-485915
