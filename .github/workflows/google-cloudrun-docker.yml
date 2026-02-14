@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      id-token: write   # REQUIRED
+      id-token: write
       contents: read
 
     steps:
@@ -17,12 +17,16 @@ jobs:
         with:
           workload_identity_provider: projects/338612156229/locations/global/workloadIdentityPools/github-pool/providers/github-provider
           service_account: github-sa@edge-485915.iam.gserviceaccount.com
+          token_format: access_token   # <-- THIS MATTERS
 
       - name: Setup gcloud
         uses: google-github-actions/setup-gcloud@v2
 
+      - name: Verify identity
+        run: gcloud auth list
+
       - name: Set project
         run: gcloud config set project edge-485915
 
-      - name: Get project details
+      - name: Describe project
         run: gcloud projects describe edge-485915
