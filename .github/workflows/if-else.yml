@@ -15,7 +15,7 @@ jobs:
         run: |
           NUMBER=${{ inputs.choose_number }}
           
-          if [[ $NUMBER -gt 100 ]]; then
+          if [ $NUMBER -gt 100 ]; then
             echo "$NUMBER number is greater than 100"
           else
             echo "$NUMBER number is less than 100"
