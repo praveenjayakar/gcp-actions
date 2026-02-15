@@ -1,0 +1,12 @@
+name: if-else-demo
+
+on:
+  workflow_dispatch:
+   inputs:
+     choose_number:
+       description: "Choose any numbers"
+       required: true
+
+
+       
+    
