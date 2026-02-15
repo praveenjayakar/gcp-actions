@@ -1,0 +1,6 @@
+let say you have taken new beanch from main and new branch named as dev
+and in dev you made 3 commits
+then you used git squash while merging Pr from dev to main
+now what it will do is it will create all commits from dev what what you made thise will he considered as a single commit.
+
+
