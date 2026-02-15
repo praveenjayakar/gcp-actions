@@ -6,6 +6,12 @@ provider "google" {
 
 
 
+variable "project_id" {}
+variable "region" {}
+variable "zone" {}
+variable "machine_type" {}
+
+
 resource "google_compute_instance" "linux_vm" {
   name         = "ai-agent-linux-vm"
   machine_type = var.machine_type
