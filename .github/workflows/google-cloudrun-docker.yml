@@ -17,7 +17,6 @@ jobs:
         with:
           workload_identity_provider: projects/338612156229/locations/global/workloadIdentityPools/praveen-wif/providers/github-provider
           service_account: github-sa@edge-485915.iam.gserviceaccount.com
-          token_format: access_token   # <-- THIS MATTERS
 
       - name: Setup gcloud
         uses: google-github-actions/setup-gcloud@v2
