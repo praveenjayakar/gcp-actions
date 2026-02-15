@@ -27,3 +27,14 @@ jobs:
           do
             echo "file found: $file"
           done
+
+  deploy:
+   runs-on: ubuntu-latest
+   steps:
+     - name: "this is second stage"
+       run: |
+         ls -lrth
+         pwd
+         
+   
+  
