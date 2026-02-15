@@ -1,0 +1,24 @@
+name: Inputs Demo – Deploy Mode
+
+on:
+  workflow_dispatch:
+    inputs:
+      deploy_type:
+        description: "Deployment type"
+        type: choice
+        options:
+          - blue-green
+          - rolling
+          - canary
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Decide strategy
+        run: |
+          case "${{ inputs.deploy_type }}" in
+            blue-green) echo "Blue-green deploy" ;;
+            rolling) echo "Rolling deploy" ;;
+            canary) echo "Canary deploy" ;;
+          esac
