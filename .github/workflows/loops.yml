@@ -5,6 +5,7 @@ on:
 
 env:
   RUNNER_HOME: "/home/runner/work/gcp-actions/gcp-actions/.github/workflows/"
+  COUNT: 0
 
 jobs:
   build:
@@ -35,6 +36,9 @@ jobs:
        run: |
          ls -lrth
          pwd
+         echo $COUNT
+
+         
          
    
   
