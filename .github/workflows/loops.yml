@@ -36,7 +36,11 @@ jobs:
        run: |
          ls -lrth
          pwd
-         echo $COUNT
+         while [ $COUNT -le 100 ];
+         do
+           echo "Count is $count"
+           count=$((count + 1))
+         done
 
          
          
