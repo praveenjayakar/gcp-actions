@@ -1,0 +1,21 @@
+name: store and use variables
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate or set Variable
+        run: |
+            echo "BUILD_ID=$(date +%s)" >> $GITHUB_ENV
+
+      - name: consume variable
+        run: |
+            echo "Value of Build id is ${BUILD_ID}"
+
+    
