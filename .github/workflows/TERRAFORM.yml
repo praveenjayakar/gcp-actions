@@ -43,7 +43,7 @@ jobs:
       - name: Terraform Apply
         run: terraform apply -auto-approve
         env:
-          TF_VAR_project_id: 	edge-485915
+          TF_VAR_project_id: edge-485915
           TF_VAR_region: ${{ inputs.region }}
           TF_VAR_zone: ${{ inputs.zone }}
           TF_VAR_machine_type: ${{ inputs.machine_type }}
