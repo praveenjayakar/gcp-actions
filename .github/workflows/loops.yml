@@ -17,5 +17,13 @@ jobs:
           ls -lrth
           pwd
           cd $RUNNER_HOME
-          ls -lrth
+          
           echo "Runner home is $RUNNER_HOME"
+
+      - name: Looping files
+        run: |
+          cd $RUNNER_HOME
+          for file in *.yml;
+          do
+            echo "file found: $file"
+          done
