@@ -1,0 +1,5 @@
+git rebase will reapply the commits to base branch
+which rebase means the commits you made on feature branch those commits will not remin same on target branch to where you are merging.
+that changes will be recreates with new commit id's
+thats why git rebase will reapply all your commit history.
+
