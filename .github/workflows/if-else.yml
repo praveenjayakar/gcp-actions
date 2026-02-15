@@ -7,6 +7,20 @@ on:
        description: "Choose any numbers"
        required: true
 
+jobs:
+  job:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Tell you your number greater on less than 100
+        run: |
+          NUMBER=${{ inputs.choose_number }}
+          
+          if [[ $NUMBER -gt 100 ]]; then
+            echo "$NUMBER number is greater than 100"
+          else
+            echo "$NUMBER number is less than 100"
+            
+          
 
        
     
