@@ -28,8 +28,8 @@ jobs:
       - name: Authenticate to Google Cloud using WIF
         uses: google-github-actions/auth@v2
         with:
-          workload_identity_provider: ${{ var.GCP_WIF_PROVIDER }}
-          service_account: ${{ var.GCP_SERVICE_ACCOUNT }}
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_SERVICE_ACCOUNT }}
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
