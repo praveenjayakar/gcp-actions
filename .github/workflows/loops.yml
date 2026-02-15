@@ -2,8 +2,8 @@
 
 name: loops
 
-env:
-  RUNNER_HOME="/home/runner/"
+# env:
+#   RUNNER_HOME="/home/runner/"
 # Controls when the workflow will run
 on:
   workflow_dispatch:
