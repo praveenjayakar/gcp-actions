@@ -5,7 +5,7 @@ on:
 
 env:
   RUNNER_HOME: "/home/runner/work/gcp-actions/gcp-actions/.github/workflows/"
-  COUNT: 90
+  
 
 jobs:
   build:
@@ -36,6 +36,7 @@ jobs:
        run: |
          ls -lrth
          pwd
+         COUNT=90
          while [ $COUNT -le 100 ];
          do
            echo "Count is $count"
