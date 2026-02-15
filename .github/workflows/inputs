@@ -1,0 +1,22 @@
+name: Inputs Demo - Environment
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Choose Target Environment"
+        type: choice
+        required: true
+        options:
+          - dev
+          - stage
+          - qa
+          - prod
+
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print environment
+        run: echo "Running in ${{ inputs.environment }}"
