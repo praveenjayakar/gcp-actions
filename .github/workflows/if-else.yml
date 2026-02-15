@@ -2,25 +2,21 @@ name: if-else-demo
 
 on:
   workflow_dispatch:
-   inputs:
-     choose_number:
-       description: "Choose any numbers"
-       required: true
+    inputs:
+      choose_number:
+        description: "Choose any number"
+        required: true
 
 jobs:
   job:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
-      - name: Tell you your number greater on less than 100
+      - name: Tell if number is greater or less than 100
         run: |
           NUMBER=${{ inputs.choose_number }}
-          
-          if [ $NUMBER -gt 100 ]; then
-            echo "$NUMBER number is greater than 100"
-          else
-            echo "$NUMBER number is less than 100"
-            
-          
 
-       
-    
+          if [ "$NUMBER" -gt 100 ]; then
+            echo "$NUMBER is greater than 100"
+          else
+            echo "$NUMBER is less than or equal to 100"
+          fi
