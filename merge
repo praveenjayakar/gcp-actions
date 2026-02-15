@@ -1,0 +1,3 @@
+git merge will merge the changes from one branch to another but it will create a new commit on target branch and that will pin the all the commits that we made on our feature branch.
+
+it will maintain all the histiry for development
