@@ -1,0 +1,19 @@
+name: Inputs Demo - Toggle
+on:
+  workflow_dispatch:
+   inputs:
+    run_cleanup:
+      description: "Run Cleanup Step"
+      type: boolean
+      default: false
+
+jobs:
+  job:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Always Run this task
+        run: echo "This always runs"
+
+      - name: conditional task
+        if: inputs.run_cleanup == true
+        run: echo "Cleanup Running"
