@@ -1,0 +1,21 @@
+name: CSV Report
+
+on:
+  workflow_dispatch:
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Install csv tool
+        run: sudo apt-get install -y csvkit
+
+      - name: Convert CSV to Markdown table
+        run: |
+          echo "## CSV Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          csvlook csv_files/people-100.csv >> $GITHUB_STEP_SUMMARY
