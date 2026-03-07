@@ -1,0 +1,22 @@
+name: CSV HTML Report
+
+on: workflow_dispatch
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate HTML report
+        run: |
+          echo "<html><body><table border='1'>" > report.html
+          awk -F, '{print "<tr>"; for(i=1;i<=NF;i++) print "<td>"$i"</td>"; print "</tr>"}' csv_files/people-100.csv >> report.html
+          echo "</table></body></html>" >> report.html
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: csv-report
+          path: report.html
