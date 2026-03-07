@@ -1,4 +1,6 @@
-name: CSV Colour Report triggered by ${{ github.actor }}
+name: CSV People Report
+
+run-name: CSV Report triggered by ${{ github.actor }}
 
 on:
   workflow_dispatch:
@@ -8,27 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Generate colorful report
+      - name: Add report header
         run: |
-          echo "## CSV People Report 📊" >> $GITHUB_STEP_SUMMARY
-          echo "<table border='1' style='border-collapse:collapse'>" >> $GITHUB_STEP_SUMMARY
-
-          awk -F',' 'NR==1{
-            printf "<tr style=\"background-color:#4CAF50;color:white\">"
-            for(i=1;i<=NF;i++) printf "<th>%s</th>", $i
-            print "</tr>"
-          }
-          NR>1{
-            if(NR%2==0)
-              printf "<tr style=\"background-color:#f2f2f2\">"
-            else
-              printf "<tr style=\"background-color:white\">"
-
-            for(i=1;i<=NF;i++) printf "<td>%s</td>", $i
-            print "</tr>"
-          }' csv_files/people-100.csv >> $GITHUB_STEP_SUMMARY
-
-          echo "</table>" >> $GITHUB_STEP_SUMMARY
+          echo "## CSV Report 📊" >> $GITHUB_STEP_SUMMARY
+          echo "**Triggered by:** ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Branch:** ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
