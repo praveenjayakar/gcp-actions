@@ -1,0 +1,14 @@
+apiVersion: configsync.gke.io/v1beta1
+kind: RootSync
+metadata:
+  name: ssh-githubapp-root-sync
+  namespace: config-management-system
+spec:
+  sourceFormat: unstructured
+  git:
+    repo: git@github.com:praveenjayakar/config-sync.git
+    branch: main
+    dir: base/nginx/01
+    auth: ssh
+    secretRef:
+      name: ssh-git-creds
